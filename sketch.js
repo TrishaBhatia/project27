@@ -35,14 +35,15 @@ function setup() {
 	rope4 = new Rope(bob4.body, roof.body, 120, 0);
 	rope5 = new Rope(bob5.body, roof.body, 240, 0);
 
-	Engine.run(engine);
+	
   
 }
 
 
 function draw() {
   rectMode(CENTER);
- 
+	background(255);
+ Engine.update(engine);
   
   rope1.display();
   rope2.display();
@@ -55,16 +56,20 @@ function draw() {
   bob3.display();
   bob4.display();
   bob5.display();
-  keyPressed();
+  
   drawSprites();
  
 }
 
 function keyPressed()
 {
-	if (keyPressed ===UP_ARROW)
-	{     isStatic:false;
-		Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-1200,y:1200});
-		
+	 if(keyCode===UP_ARROW)
+	{     
+		Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-1200,y:-1200});
+		Matter.Body.setStatic(bob1.body,false);
+		Matter.Body.setStatic(bob2.body,false);
+		Matter.Body.setStatic(bob3.body,false);
+		Matter.Body.setStatic(bob4.body,false);
+		Matter.Body.setStatic(bob5.body,false);
 	}
 }
