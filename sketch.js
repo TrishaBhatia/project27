@@ -42,7 +42,7 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-	background(255);
+ background(255);
  Engine.update(engine);
   
   rope1.display();
@@ -57,7 +57,7 @@ function draw() {
   bob4.display();
   bob5.display();
   
-  drawSprites();
+  
  
 }
 
@@ -65,11 +65,7 @@ function keyPressed()
 {
 	 if(keyCode===UP_ARROW)
 	{     
-		Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-1200,y:-1200});
-		Matter.Body.setStatic(bob1.body,false);
-		Matter.Body.setStatic(bob2.body,false);
-		Matter.Body.setStatic(bob3.body,false);
-		Matter.Body.setStatic(bob4.body,false);
-		Matter.Body.setStatic(bob5.body,false);
+		Matter.Body.applyForce(bob1.body,{x:bob2.body.position.x,y:bob2.body.position.y},{x:-250,y:-250});
+		
 	}
 }
